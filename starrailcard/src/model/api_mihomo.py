@@ -1,7 +1,7 @@
 # Copyright 2024 DEViantUa <t.me/deviant_ua>
 # All rights reserved.
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, field_validator
 from typing import List, Optional,Final, Union
 
 from ..tools.ukrainization import TranslateDataManager
@@ -191,6 +191,12 @@ class LightCone(BaseModel):
 
         if UA_LANG:
             self.name = TranslateDataManager._data.weapons.get(self.id, self.name)
+            
+    @field_validator("promotion")
+    def __convert_promotion(cls, v: int | None) -> int:
+        if v is None:
+            return 0
+        return v
             
 class ColorElement(BaseModel):
     hex: Optional[str]
