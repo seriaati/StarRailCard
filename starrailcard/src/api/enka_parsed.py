@@ -107,7 +107,7 @@ class AssetEnkaParsed:
             "nickname": self.data["detailInfo"]["nickname"],
             "level": self.data["detailInfo"]["level"],
             "world_level": self.data["detailInfo"]["worldLevel"],
-            "friend_count": self.data["detailInfo"]["friendCount"],
+            "friend_count": self.data["detailInfo"].get("friendCount", 0),
             "avatar": await self.get_avatar_info(str(self.data["detailInfo"]["headIcon"])),
             "signature": self.data["detailInfo"].get("signature", ""),
             "is_display": self.data["detailInfo"].get("isDisplayAvatar", False),
