@@ -192,7 +192,7 @@ class LightCone(BaseModel):
         if UA_LANG:
             self.name = TranslateDataManager._data.weapons.get(self.id, self.name)
             
-    @field_validator("promotion")
+    @field_validator("promotion", mode="before")
     def __convert_promotion(cls, v: int | None) -> int:
         if v is None:
             return 0
