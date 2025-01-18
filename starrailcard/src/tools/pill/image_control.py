@@ -162,7 +162,7 @@ async def get_user_image(img):
     if type(img) != str:
         img = img
     elif type(img) == str:
-        linkImg = re.search("(?P<url>https?://[^\s]+)", img)
+        linkImg = re.search("(?P<url>https?://[^\\s]+)", img)
         if linkImg:
             try:
                 if "gif" in linkImg.group():
