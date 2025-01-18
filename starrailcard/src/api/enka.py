@@ -64,7 +64,7 @@ class ApiEnkaNetwork:
             data = await self.get(uid, parsed = False)
             data["detailInfo"]["avatarDetailList"] = [data_build]
             if self.parsed:
-                data = await AssetEnkaParsed(data).collect(True)
+                data = await AssetEnkaParsed(data, self.lang).collect(True)
             else:
                 return data
         except aiohttp.ClientConnectionError:
@@ -124,7 +124,7 @@ class ApiEnkaNetwork:
             data = await http.AioSession.get(_API_ENKA.format(uid=uid))
 
             if self.parsed and parsed:
-                data = await AssetEnkaParsed(data).collect()
+                data = await AssetEnkaParsed(data, self.lang).collect()
             else:
                 return data
         except aiohttp.ClientConnectionError:
