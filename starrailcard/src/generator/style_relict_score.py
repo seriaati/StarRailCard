@@ -414,7 +414,7 @@ class Create:
         d.text((249, -2), self.lang.score, font=font_21, fill = (255,255,255,255))
         d.text((320, -2), str(self.score_info["total_score"]['count']), font=font_21, fill = self.score_info["total_score"]["rank"]["color"])
         
-        d.text((17, -2), gettext("summary_rank", self.lang), font=font_21, fill = (255,255,255,255))
+        d.text((17, -2), self.lang.summary_rank, font=font_21, fill = (255,255,255,255))
         d.text((189, -2), str(self.score_info["total_score"]["rank"]["name"]), font=font_21, fill = self.score_info["total_score"]["rank"]["color"])
         
         d.text((393, -2), self.lang.eff_stat, font=font_21, fill = (255,255,255,255))

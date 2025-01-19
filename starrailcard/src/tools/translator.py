@@ -145,6 +145,11 @@ class Translator:
         self.lang = str(lang)
 
     def __getattr__(self, name):
-        return translationLang.get(self.lang, translationLang["en"]).get(
-            name, translationLang["en"].get(name, name)
-        )
+        if self.lang not in translationLang:
+            lang = "en"
+        else:
+            lang = self.lang
+
+        if name not in translationLang[lang]:
+            return translationLang["en"].get(name, name)
+        return translationLang[lang][name]
