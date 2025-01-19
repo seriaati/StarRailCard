@@ -7,7 +7,6 @@ import io
 from PIL import ImageDraw,Image,ImageChops, ImageSequence, ImageFilter
 import functools
 
-from .l10n import gettext
 from ..tools import git, options, treePaths
 from ..tools.calculator import stats
 from ..model.style import Card
@@ -247,13 +246,13 @@ class Create:
             y_text += 28
             y_roll += 27
             
-        d.text((22, 4), gettext("score", self.lang), font=font_14, fill = (255,255,255,255))
+        d.text((22, 4), self.lang.score, font=font_14, fill = (255,255,255,255))
         d.text((70, 4), str(score["count"]), font=font_14, fill = score["rank"]["color"])
         
-        d.text((105, 4), gettext("rank", self.lang), font=font_14, fill = (255,255,255,255))
+        d.text((105, 4), self.lang.rank, font=font_14, fill = (255,255,255,255))
         d.text((149, 4), str(score["rank"]["name"]), font=font_14, fill = score["rank"]["color"])
         
-        d.text((187, 4), gettext("eff_stat", self.lang), font=font_14, fill = (255,255,255,255))
+        d.text((187, 4), self.lang.eff_stat, font=font_14, fill = (255,255,255,255))
         d.text((247, 4), str(eff), font=font_14, fill = options.color_scoreR.get(eff,(255,255,255,255)))
         
         self.total_eff += eff
@@ -296,13 +295,13 @@ class Create:
         font_21 = await pill.get_font(15)
         d = ImageDraw.Draw(self.background_score)
         
-        d.text((249, -2), gettext("score", self.lang), font=font_21, fill = (255,255,255,255))
+        d.text((249, -2), self.lang.score, font=font_21, fill = (255,255,255,255))
         d.text((300, -2), str(self.score_info["total_score"]['count']), font=font_21, fill = self.score_info["total_score"]["rank"]["color"])
         
-        d.text((17, -2), gettext("summary_rank", self.lang), font=font_21, fill = (255,255,255,255))
+        d.text((17, -2), self.lang.summary_rank, font=font_21, fill = (255,255,255,255))
         d.text((140, -2), str(self.score_info["total_score"]["rank"]["name"]), font=font_21, fill = self.score_info["total_score"]["rank"]["color"])
         
-        d.text((393, -2), gettext("eff_stat", self.lang), font=font_21, fill = (255,255,255,255))
+        d.text((393, -2), self.lang.eff_stat, font=font_21, fill = (255,255,255,255))
         d.text((457, -2), str(self.total_eff), font=font_21, fill = options.color_scoreR.get(self.total_eff,(255,255,255,255)))
     
     
