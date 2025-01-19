@@ -52,8 +52,8 @@ translationLang = {
         "AC": "Thành tích ",
         "AB": "Vực thẳm",
         "score": "Điểm:",
-        "summary_rank": "Xếp hạng tổng quát:",
-        "eff_stat": "T.tính Đề Xuất:",
+        "summary_rank": "Tổng quát:",
+        "eff_stat": "Đề xuất:",
         "rank": "Hạng:",
     },
     "th": {
