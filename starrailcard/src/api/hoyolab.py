@@ -62,7 +62,7 @@ class HoYoLabApi:
         except Exception as e:
             print(e)
             raise
-        data = await AssetHoYoLabParsed(data, data.property_info).collect()
+        data = await AssetHoYoLabParsed(data, data.property_info, self.lang).collect()
         
         
         if self.ua_lang:

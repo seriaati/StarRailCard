@@ -66,10 +66,10 @@ convert_id = {
    "26":"BaseHP",
 }
 class AssetHoYoLabParsed:
-    def __init__(self, data, propery_info) -> None:
+    def __init__(self, data, propery_info, lang = None) -> None:
         self.data = data
         self.propery_info = propery_info
-        self.lang = "en"
+        self.lang = lang or "en"
     
     async def load_assets(self):
         self.character = await JsonManager(PathData.ENKA_INDEX.value / self.lang / "characters.json").read()
