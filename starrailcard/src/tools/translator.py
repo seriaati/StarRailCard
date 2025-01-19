@@ -51,6 +51,10 @@ translationLang = {
         "WL": "WL",
         "AC": "Thành tích ",
         "AB": "Vực thẳm",
+        "score": "Điểm:",
+        "summary_rank": "Xếp hạng tổng quát:",
+        "eff_stat": "T.tính Đề Xuất:",
+        "rank": "Hạng:",
     },
     "th": {
         "lvl": "ระดับ ",
