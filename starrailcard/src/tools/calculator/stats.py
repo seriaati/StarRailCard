@@ -17,9 +17,9 @@ r = "kLMHBJpWBQqBJOgJP@LQGaLW"
 k = "5ceb5d1b20945b82dd21c7`g2909g1e4711d802b"
 
 
-_LINK_SCORE = "https://raw.githubusercontent.com/"+decrypt_url(n,42)+"/"+decrypt_url(r,35)+"/"+"main"+"/generate/weight.json"
-_LINK_DATA = "https://raw.githubusercontent.com/"+decrypt_url(n,42)+"/"+decrypt_url(r,35)+"/"+"main"+"/generate/{name}.json"
-_LINK_SCORE_V2 = "https://raw.githubusercontent.com/"+decrypt_url(n,42)+"/StarRailScore/master/score.json"
+_LINK_SCORE = "https://raw.githubusercontent.com/Mar-7th/StarRailScore/refs/heads/master/score.json"
+_LINK_DATA = "https://raw.githubusercontent.com/lenlino/HonkaiStarRailDiscordBot/main/generate/{name}.json"
+_LINK_SCORE_V2 = "https://raw.githubusercontent.com/Mar-7th/StarRailScore/refs/heads/master/score.json"
 
 _PATH = Path(__file__).parent /"src"/"assets"
 
