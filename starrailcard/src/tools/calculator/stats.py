@@ -105,9 +105,6 @@ class Calculator:
         return result_json,dont_sub
 
     async def start(self, hoyo):
-        if hoyo:
-            return self.result
-        
         if not self.data.id in self.score:
             await self.update_score(self.data.id)
             self.score = open_score("score")
@@ -130,7 +127,7 @@ class Calculator:
         
         self.result["total_score"]["count"] = round(self.result["total_score"]["count"] /2, 1)
         self.result["total_score"]["rank"] = {"name": utils.get_relic_full_score_text(self.result["total_score"]["count"]), "color": utils.get_total_score_color(self.result["total_score"]["count"])}
-         
+
         return self.result
 
     async def get_score(self):
