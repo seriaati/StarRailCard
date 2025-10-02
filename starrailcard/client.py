@@ -1,9 +1,9 @@
 # Copyright 2024 DEViantUa <t.me/deviant_ua>
 # All rights reserved.
 
+import logging
 import anyio
 from typing import Union
-import traceback
 
 from .src.tools import cache, http, ukrainization, options, translator, git
 from .src.generator import style_relict_score, style_ticket, style_profile_phone, style_card
@@ -11,6 +11,7 @@ from .src.api import api, enka, error, hoyolab
 from .src.model import StarRailCard,api_mihomo
 from .src.tools.pill import image_control
 
+logger = logging.getLogger(__name__)
 
 class HoYoCard:
     def __init__(self, cookie: dict, lang: str = "en", character_art = None, character_id = None, seeleland: bool = False,
@@ -116,7 +117,7 @@ class HoYoCard:
         try:
             data = await hoyolab.HoYoLabApi(uid, lang= self.lang).get(self.cookie)
         except Exception as e:
-            print(e)
+            logger.exception(e)
             raise error.StarRailCardError(8, "To use the HoYoLab API you need to download/update the asset")
   
         result = []
@@ -170,7 +171,7 @@ class HoYoCard:
                         elif style == 3:
                             result.append(await style_card.Create(key,self.translateLang,art,hide_uid,uid, self.seeleland,self.remove_logo, color).start(hoyo = True))
                     except Exception as e:
-                        print(f"Error in get_result for character {key.id}: {e}")
+                        logger.exception(f"Error in get_result for character {key.id}: {e}")
                         
                 tasks.start_soon(get_result, key)
                     
@@ -320,8 +321,7 @@ class Card:
                 try:
                     data = await enka.ApiEnkaNetwork(uid, lang= self.lang).get()
                 except Exception as e:
-                    print(e)
-                    print("To use the EnkaNetwork API you need to download/update the asset\nExample: await enka.ApiEnkaNetwork().update_assets()")
+                    logger.exception("To use the EnkaNetwork API you need to download/update the asset\nExample: await enka.ApiEnkaNetwork().update_assets()")
                     data = await api.ApiMiHoMo(uid, lang= self.lang, force_update = force_update, user_agent= self.user_agent).get()
             else:
                 data = await api.ApiMiHoMo(uid, lang= self.lang, force_update = force_update, user_agent= self.user_agent).get()
@@ -382,8 +382,7 @@ class Card:
                 try:
                     data = await enka.ApiEnkaNetwork(uid, lang= self.lang).get()
                 except Exception as e:
-                    print(e)
-                    print("To use the EnkaNetwork API you need to download/update the asset")
+                    logger.exception("To use the EnkaNetwork API you need to download/update the asset\nExample: await enka.ApiEnkaNetwork().update_assets()")
                     data = await api.ApiMiHoMo(uid, lang= self.lang, force_update = force_update, user_agent= self.user_agent).get()
             else:
                 data = await api.ApiMiHoMo(uid, lang= self.lang, force_update = force_update, user_agent= self.user_agent).get()
@@ -442,9 +441,8 @@ class Card:
                         elif style == 3:
                             result.append(await style_card.Create(key,self.translateLang,art,hide_uid,uid, self.seeleland,self.remove_logo, color).start())
                     except Exception as e:
-                        print(f"Error in get_result for character {key.id}:\n{traceback.format_exc()}")
-                        print(f"Error in get_result for character {key.id}: {e}")
-                        
+                        logger.exception(f"Error in get_result for character {key.id}: {e}")
+
                 tasks.start_soon(get_result, key)
                     
         response["card"] = result
@@ -483,7 +481,7 @@ class Card:
             try:
                 data = await enka.ApiEnkaNetwork().get_build(name, hash, uid)
             except Exception as e:
-                print(e)
+                logger.exception(e)
                 raise error.StarRailCardError(8, "To use the HoYoLab API you need to download/update the asset")
         else:
             data = self.api_data
@@ -542,7 +540,7 @@ class Card:
                         elif style == 3:
                             result.append(await style_card.Create(key,self.translateLang,art,hide_uid,uid, self.seeleland,self.remove_logo, color).start(build= key.build))
                     except Exception as e:
-                        print(f"Error in get_result for character {key.id}: {e}")
+                        logger.exception(f"Error in get_result for character {key.id}: {e}")
                         
                 tasks.start_soon(get_result, key)
                     
@@ -556,7 +554,6 @@ class Card:
         if self.save:
             async with anyio.create_task_group() as tasks:
                 for key in response["card"]:
-                    print(key)
                     if key["animation"]:
                         continue
                     tasks.start_soon(options.save_card,uid,key["card"],f'{key["id"]}_{key["build"]["name_build"]}')        
