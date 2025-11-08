@@ -93,14 +93,18 @@ async def create_path(character):
         else:
             icon = await get_download_img(key.icon, size=(35,35))
             icon = await recolor_image(icon, (0,0,0))
+            data = path.get(key.anchor)
+            if not data:
+                continue
+
             if key.level == key.max_level:
-                background_path.alpha_composite(icon, path[key.anchor]["icon"])
+                background_path.alpha_composite(icon, data["icon"])
             else:
                 icon = await apply_opacity(icon, opacity=0.5)
                 closed = await git.ImageCache().path_closed_dop
-                background_path.alpha_composite(icon, path[key.anchor]["icon"])
-                background_path.alpha_composite(closed, path[key.anchor]["icon"])
-                
+                background_path.alpha_composite(icon, data["icon"])
+                background_path.alpha_composite(closed, data["icon"])
+
     return background_path
 
 
