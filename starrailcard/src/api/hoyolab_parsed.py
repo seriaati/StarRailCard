@@ -224,7 +224,7 @@ class AssetHoYoLabParsed:
         
         for key in properties:
             cId = convert_id.get(str(key.property_type))
-            if await self.delete_procent(key.base) != 0:
+            if cId is not None and await self.delete_procent(key.base) != 0:
                 attributes.append(
                     {
                         "field": self.propertie[cId]["field"],
@@ -244,7 +244,7 @@ class AssetHoYoLabParsed:
         for key in properties:
             cId = convert_id.get(str(key.property_type))
             
-            if await self.delete_procent(key.final) != 0:
+            if cId is not None and await self.delete_procent(key.final) != 0:
                 additions.append(
                     {
                         "type": self.propertie[cId]["type"],
@@ -264,7 +264,7 @@ class AssetHoYoLabParsed:
         
         for key in properties:
             cId = convert_id.get(str(key.property_type))
-            if await self.delete_procent(key.add) != 0:
+            if cId is not None and await self.delete_procent(key.add) != 0:
                 additions.append(
                     {"field": self.propertie[cId]["field"],
                     "name": self.propertie[cId]["name"],
