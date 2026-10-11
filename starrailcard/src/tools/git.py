@@ -76,6 +76,7 @@ total_style = {
     "Warlock": 'teample_two_new/path/Warlock.png',
     "Warrior": 'teample_two_new/path/Warrior.png',
     "Memory": 'teample_two_new/path/Memory.png',
+    "Elation": 'teample_two_new/path/Elation.png',
     
     'relict_backgroundl_score_line': 'teample_two_new/relict/backgroundl_score_line.png',
     'relict_full_score_line': 'teample_two_new/relict/full_score_line.png',

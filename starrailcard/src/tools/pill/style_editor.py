@@ -63,7 +63,7 @@ async def create_path(character):
         closed = await git.ImageCache().path_closed_main
 
     for key in character.skill_trees:
-        if key.anchor in ['Point01','Point02','Point03','Point04','Point05','Point19','Point20']:
+        if key.anchor in ['Point01','Point02','Point03','Point04','Point05','Point19','Point20','Point22']:
             icon = await get_download_img(key.icon, size=(47,47))
             icon = await recolor_image(icon, (255,212,173))
             count = await git.ImageCache().path_count

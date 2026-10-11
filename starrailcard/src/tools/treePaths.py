@@ -259,5 +259,30 @@ map_new = {
 
         "Point20":{"icon": (265,80), "count": (261,131)},
         "Point19":{"icon": (265,194), "count": (261,245)},
+   },
+
+   "Elation": {
+        "Point01": {"icon": (165,36), "count": (160,86)},
+        "Point02": {"icon": (354,36), "count": (349,86)},
+        "Point03": {"icon": (260,210), "count": (255,260)},
+        "Point04": {"icon": (260,113), "count": (255,163)},
+        "Point05": {"icon": (260,305), "count": (255,355)},
+
+        "Point06":{"icon": (260,414), "closed": (247,406)},
+        "Point07":{"icon": (74,95), "closed": (61,87)},
+        "Point08":{"icon": (445,95), "closed": (432,87)},
+
+        "Point09":{"icon": (175,290)},
+        "Point10":{"icon": (356,291)},
+        "Point11":{"icon": (187,420)},
+        "Point12":{"icon": (344,421)},
+        "Point13":{"icon": (40,192)},
+        "Point14":{"icon": (56,279)},
+        "Point15":{"icon": (119,228)},
+        "Point16":{"icon": (491,192)},
+        "Point17":{"icon": (475,279)},
+        "Point18":{"icon": (412,228)},
+
+        "Point22":{"icon": (260,0), "count": (255,50)},
    }
 }

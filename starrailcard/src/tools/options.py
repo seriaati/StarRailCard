@@ -244,6 +244,8 @@ async def get_background_path(path):
         icon =  await _git.Warlock
     elif path == "Memory":
         icon =  await _git.Memory
+    elif path == "Elation":
+        icon =  await _git.Elation
     else:
         icon = await _git.Warrior
     
