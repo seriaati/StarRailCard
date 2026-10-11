@@ -395,7 +395,7 @@ class Create:
                 frame = await _of.talants_adaptationt_frame
                 if key.max_level > 10:
                     color = options.color_element_talant.get(self.data.element.id.lower(), (255,255,255,255))
-                if key.anchor in ["Point19", "Point20"]:
+                if key.anchor in ["Point19", "Point20", "Point22"]:
                     icon = await pill.recolor_image(icon, (215, 194, 227))
                     frame = await pill.recolor_image(frame.copy(),  (215, 194, 227))
                 else:
@@ -411,7 +411,7 @@ class Create:
                 background.alpha_composite(frame)
                 icon_skill.alpha_composite(background, (5, 0))
                 icon_skill.alpha_composite(count_background, (0, 37))
-                if key.anchor in ["Point19", "Point20"]:
+                if key.anchor in ["Point19", "Point20", "Point22"]:
                     holst_point_add.alpha_composite(icon_skill, (point_add_position, 0))
                     point_add_position += 78
 
